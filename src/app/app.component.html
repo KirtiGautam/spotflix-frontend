@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+</mat-toolbar>
+<div>
+  <mat-grid-list cols="3" >
+    <mat-grid-tile *ngFor="let data of sampleData">
+      <mat-card class="card">
+        <mat-card-title class="header">
+          {{data.title}}
+        </mat-card-title>
+        <img mat-card-avatar src={{data.image}} class="card-image" title="{{data.title}}"> 
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
