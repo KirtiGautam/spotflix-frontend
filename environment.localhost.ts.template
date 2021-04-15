@@ -1,0 +1,6 @@
+export const environment = {
+    production: false,
+    POSTER_BASE: '{{POSTER_BASE}}',
+    API_BASE: '{{API_BASE}}',
+    TMDB_KEY: '{{KEY_GOES_HERE}}',
+}

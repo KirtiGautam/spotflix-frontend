@@ -1,15 +1,17 @@
 <mat-toolbar color="primary">
   <span>{{title}}</span>
 </mat-toolbar>
-<div>
-  <mat-grid-list cols="3" >
-    <mat-grid-tile *ngFor="let data of sampleData">
+<app-loader *ngIf="isLoading"></app-loader>
+<div *ngIf="!isLoading" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+  <mat-grid-list cols="5" >
+    <mat-grid-tile *ngFor="let data of movies">
       <mat-card class="card">
         <mat-card-title class="header">
-          {{data.title}}
+          {{data.title || data.original_name}}
         </mat-card-title>
-        <img mat-card-avatar src={{data.image}} class="card-image" title="{{data.title}}"> 
-      </mat-card>
+        <img mat-card-avatar src="{{POSTER_BASE}}{{data.poster_path}}" class="card-image" title="{{data.title}}"> 
+      </mat-card>      
     </mat-grid-tile>
+    <app-loader *ngIf="!isLoading && scrolled"></app-loader>
   </mat-grid-list>
 </div>

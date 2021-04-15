@@ -1,28 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from './core/services/movie.service';
+import { environment } from '../environments/environment'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'Spotflix';
-  sampleData = [
-    {
-      'title': 'Iron Man',
-      'image': 'https://pbs.twimg.com/profile_images/1222654825403424768/-ySQePLc.jpg'
-    },
-    {
-      'title': 'Dr. Strange',
-      'image': 'https://wallpapercave.com/wp/wp3965882.jpg'
-    },
-    {
-      'title': 'Catwoman',
-      'image': 'https://i.ytimg.com/vi/zqnY9rUir4Q/maxresdefault.jpg'
-    },
-    {
-      'title': 'Harley Quinn',
-      'image': 'https://images-na.ssl-images-amazon.com/images/I/71QtpwY6xJL._AC_SL1500_.jpg'
-    },
-  ]
+  movies: any[] = [];
+  POSTER_BASE = environment.POSTER_BASE + '/original/' ;
+  isLoading = true;
+  page = 1;
+  scrolled = false;
+
+  constructor(private movieService: MovieService) { }
+
+  onScroll() {
+    const that = this;
+    that.scrolled = true;
+    that.movieService.getTrending(++that.page).subscribe(response => {
+      that.movies = that.movies.concat(response.results);
+      that.isLoading = false;
+      that.scrolled = false;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  ngOnInit() {
+    const that = this;
+    that.movieService.getTrending().subscribe(response => {
+      that.movies = response.results;
+      that.isLoading = false;
+    }, err => {
+      console.log(err);
+    });
+  }
 }

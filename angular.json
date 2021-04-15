@@ -62,6 +62,14 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "localhost": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "environment.localhost.ts"
+                }
+              ]
             }
           }
         },
@@ -73,6 +81,9 @@
           "configurations": {
             "production": {
               "browserTarget": "spotflix-frontend:build:production"
+            },
+            "localhost": {
+              "browserTarget": "spotflix-frontend:build:localhost"
             }
           }
         },
@@ -121,6 +132,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "spotflix-frontend:serve:production"
+            },
+            "localhost": {
+              "devServerTarget": "spotflix-frontend:build:localhost"
             }
           }
         }

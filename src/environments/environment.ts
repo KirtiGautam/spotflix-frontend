@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  POSTER_BASE: '{{POSTER_BASE}}',
+  API_BASE: '{{API_BASE}}',
+  TMDB_KEY: '{{TMDB_KEY}}'
 };
 
 /*
