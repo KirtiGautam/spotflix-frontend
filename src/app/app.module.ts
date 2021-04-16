@@ -12,6 +12,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { SharedModule } from './shared/shared.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatListModule } from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider'
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDividerModule,
+    MatListModule,
+    MatRadioModule,
+    MatSidenavModule,
     MatGridListModule,
     MatToolbarModule,
     MatIconModule,

@@ -1,18 +1,26 @@
-.example-spacer {
-    flex: 1 1 auto;
+.hamburger {
+    color: #FFFF;
+    background-color: #1565C0;
+    margin-right: 2%;
+}
+
+.side-nav {
+    min-width: 25%;
+    min-height: 100%;
+}
+
+.media-selection {
+    margin: 10% 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
 
 .card {
-    margin: 2% 2% 2% 2%;    
+    margin: 2% 2% 2% 2%;
+    max-width: 75%;
+    max-height: 75%;
 }
 
-.card-image {
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    font-size: 40px;
-}
-
-.header {
-    text-align: center;
+.background {
+    background-color: #F0F0F0;
 }

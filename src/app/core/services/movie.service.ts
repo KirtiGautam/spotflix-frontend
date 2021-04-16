@@ -10,9 +10,10 @@ import { ApiService } from "./api.services";
 export class MovieService {
     constructor(private apiService: ApiService,) { }
 
-    getTrending(page: number = 1): Observable<ListModel> {
+    getTrending(page = 1, type = 'a'): Observable<ListModel> {
         const data = {
-            page
+            page,
+            type
         }
         return this.apiService.get('trending/', data)
     }
